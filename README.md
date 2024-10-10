@@ -1,5 +1,24 @@
 # my-app
 
+## 修改点
+首先修改了`chain.py`，修改了模型以及国内代理的 API Base
+```javascript
+# LLMs
+cypher_llm = ChatOpenAI(model="gpt-4", temperature=0.0, base_url="https://api.openai-hk.com/v1/")
+qa_llm = ChatOpenAI(model="gpt-4o", temperature=0.0,base_url="https://api.openai-hk.com/v1/")
+```
+然后需要在 shell 环境变量中写入自己的配置，依次运行下面的代码
+```bash
+export OPENAI_API_KEY=你的OpenAI_API_Key
+export NEO4J_URI=你的neo4j_uri,如bolt://127.0.0.1:7687
+export NEO4J_USERNAME=你的neo4j_username,如neo4j
+export NEO4J_PASSWORD=你的neo4j_password
+```
+最后运行 LangChain app `langchain serve` 即可
+
+---
+以下为默认 `Readme.md`
+
 ## Installation
 
 Install the LangChain CLI if you haven't yet
